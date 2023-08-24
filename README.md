@@ -14,6 +14,60 @@
 
 アイデアバンクは`アイデアバンクの更新`と`執筆`のサイクルを繰り返しながら執筆していくシステムになります。
 
+## インストール
+
+[Quick start | Hugo](https://gohugo.io/getting-started/quick-start/#explanation-of-commands)に従って、Hugoのサイトを生成してください。
+
+ここでは、例として`mybank`というディレクトリにサイトを作ります。
+
+~~~shell
+hugo new site mybank
+~~~
+
+`mybank`に移動し、`git submodule`を使って`idea_bank`テーマを追加します。
+
+~~~shell
+cd mybank
+git submodule add https://github.com/kantas-spike/idea_bank.git themes/idea_bank
+~~~
+
+`hugo.toml`の設定を変更し、`idea_bank`テーマを有効にします。
+
+~~~toml
+# ..略..
+theme = 'idea_bank'
+# ..略..
+~~~
+
+あとは、動作確認です。以下を実行してサーバーを起動します。
+そして、[](http://localhost:1313/)をブラウザで開いてサイトが表示されるか確認しましょう。
+
+~~~shell
+hugo server
+~~~
+
+## コンテンツの登録
+
+アイデアも自然石も `content/ideas` ディレクトリに格納します。
+
+コンテンツの種類は以下になります。
+
+- 大きなアイデア
+
+  [Leaf Bundles - Page bundles | Hugo](https://gohugo.io/content-management/page-bundles/#leaf-bundles)として登録します。
+
+  ~~~shell
+  hugo new content --kind idea-bundle ideas/アイデアバンクを作る
+  ~~~
+
+- 小さなアイデア
+
+  ただのページとして登録します。
+
+- 自然石
+
+  ただのページとして登録します。
+
 ## 方針
 
 - [ ] 以下のコンテンツを管理可能にします。
