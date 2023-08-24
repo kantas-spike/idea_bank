@@ -1,1 +1,25 @@
 # Theme config.
+[menu]
+[[menu.main]]
+  identifier = 'Home'
+  title = 'Home'
+  url = '/'
+  weight = 10
+
+[[menu.main]]
+  identifier = 'Ideas'
+  title = 'アイデア'
+  url = '/ideas'
+  weight = 31
+
+[[menu.main]]
+  identifier = 'Fieldstones'
+  title = '自然石'
+  url = '/fieldstones'
+  weight = 32
+
+  [[menu.main]]
+  identifier = 'Tags'
+  title = 'タグ'
+  url = '/tags'
+  weight = 33
