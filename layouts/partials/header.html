@@ -1,12 +1,20 @@
-<div class="container mx-auto">
-  <div class="grid grid-cols-3 bg-secondary text-on-secondary">
-    <div
+<div class="container mx-auto bg-secondary text-on-secondary">
+  <div
       class="col-span-full px-m py-s hl-l font-bold bg-primary/50 text-on-primary"
     >
       <a class="site_title" href="/">アイデアバンク</a>
-    </div>
-    <div class="text-center py-s border-r border-outline-variant navi {{ if (eq .CurrentSection.Section "ideas") }}bg-secondary-container text-on-secondary-container{{ end }}"><a class="block w-full" href="/ideas">アイデア</a></div>
-    <div class="text-center py-s border-r border-outline-variant navi {{ if (eq .CurrentSection.Section "fieldstones") }}bg-secondary-container text-on-secondary-container{{ end }}"><a class="block w-full" href="/fieldstones">自然石</a></div>
-    <div class="text-center py-s navi {{ if (hasPrefix .RelPermalink "/tags") }}bg-secondary-container text-on-secondary-container{{ end }}"><a class="block w-full" href="/tags">タグ</a></div>
+  </div>
+  <div class="grid grid-flow-col justify-stretch">
+
+    {{- $currentPage := . -}}
+    {{- $selected := false -}}
+    {{- range $idx, $val := (sort .Site.Menus.main "Weight") -}}
+    {{if (or (eq $currentPage.RelPermalink .URL) (and (ne .Identifier "Home") (hasPrefix $currentPage.RelPermalink .URL)))}}
+      {{- $selected = true -}}
+    {{ else }}
+      {{- $selected = false -}}
+    {{end}}
+    <div class="text-center py-s navi {{ if (ne $idx 0) }}border-l border-outline-variant{{end}} {{ if $selected }}font-bold bg-secondary-container text-on-secondary-container{{end}}"><a class="block w-full" href="{{ $val.URL }}">{{ $val.Title }}</a></div>
+    {{- end -}}
   </div>
 </div>
