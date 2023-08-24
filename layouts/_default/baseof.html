@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
     {{- partial "head.html" . -}}
-    <body>
+    <body class="bg-background font-sans">
         {{- partial "header.html" . -}}
-        <div id="content">
+        <div id="content" class="bg-surface text-on-surface container mx-auto min-h-[600px]">
         {{- block "main" . }}{{- end }}
         </div>
         {{- partial "footer.html" . -}}
