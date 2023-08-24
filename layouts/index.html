@@ -1,31 +1,31 @@
 {{ define "main" }}
-<div>
+<div class="pt-m pb-xl">
+  <div class="mx-s p-s rounded-md border border-outline-variant">
     {{ .Content }}
-</div>
-<div>
-    <h2>アイデア</h2>
-    {{ range (where .Site.RegularPages.ByLastmod.Reverse ".Params.categories" "intersect" (slice "アイデア")) }}
-    <div>
-        <div>
-            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        </div>
-        <div>
-            {{ .Summary }}
-        </div>
+  </div>
+  <div class="mx-s px-s">
+    <h4>アイデア</h4>
+    <div class="grid grid-cols-4 gap-s">
+      {{ range (where .Site.RegularPages.ByLastmod.Reverse ".Params.categories"
+      "intersect" (slice "アイデア")) }}
+      <div class="border border-outline rounded-lg p-s">
+        <div><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+        <div>{{ .Summary }}</div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+  <div class="mx-s px-s">
+    <h4>自然石</h4>
+    <div class="grid grid-cols-4 gap-s">
+      {{ range where .Site.RegularPages.ByLastmod.Reverse ".Params.categories"
+      "intersect" (slice "自然石") }}
+      <div class="border border-outline rounded-lg p-s">
+        <div><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+        <div>{{ .Summary }}</div>
+      </div>
     </div>
     {{ end }}
-</div>
-<div>
-    <h2>自然石</h2>
-    {{ range where .Site.RegularPages.ByLastmod.Reverse  ".Params.categories" "intersect" (slice "自然石")  }}
-    <div>
-        <div>
-            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
-        </div>
-        <div>
-            {{ .Summary }}
-        </div>
-    </div>
-    {{ end }}
+  </div>
 </div>
 {{ end }}
