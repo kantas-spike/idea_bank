@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div class="mx-s p-s">
+  <div class="mb-s hl-xs">{{ .Title }}</div>
+  <div class="grid grid-cols-6">
+    {{ range .Data.Terms.Alphabetical }}
+    <div class="tag mx-4 mb-3">
+      <a href="{{ .Page.Permalink }}">#{{ .Page.Title }}</a
+      ><span>({{ .Count }})</span>
+    </div>
+    {{ end }}
+  </div>
+</div>
+{{ end }}
+
