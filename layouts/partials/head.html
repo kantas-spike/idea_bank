@@ -1,0 +1,18 @@
+<head>
+    <title>
+        {{- if .Title }}
+        {{ .Title }} | {{ .Site.Title }}
+        {{- else }}
+        {{ .Site.Title }}
+        {{- end }}
+    </title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {{- $css := resources.Get "css/theme.css" -}}
+    {{- $css := $css | resources.PostCSS -}}
+    {{- if hugo.IsProduction }}
+        {{- $css = $css | resources.Minify | resources.Fingerprint }}
+    {{- else -}}
+        {{- $css = $css | resources.Fingerprint }}
+    {{- end }}
+    <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+</head>
