@@ -1,0 +1,19 @@
+{{ define "main" }}
+<div class="pt-m pb-xl">
+  <div class="mx-s p-s rounded-md border border-outline-variant">
+    {{ .Content }}
+  </div>
+  <div class="mt-m mx-s px-s">
+    <div class="grid grid-cols-4 gap-s">
+      {{ range (where .Site.RegularPages.ByLastmod.Reverse ".Params.categories"
+      "intersect" (slice "自然石")) }}
+      <div class="border border-outline rounded-lg p-s">
+        <div class="mb-s"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
+        <div>{{ .Summary }}</div>
+      </div>
+      {{ end }}
+    </div>
+  </div>
+</div>
+
+{{ end }}

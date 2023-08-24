@@ -9,17 +9,17 @@
 [[menu.main]]
   identifier = 'Ideas'
   title = 'アイデア'
-  url = '/ideas'
+  url = '/ideas/'
   weight = 31
 
 [[menu.main]]
   identifier = 'Fieldstones'
   title = '自然石'
-  url = '/fieldstones'
+  url = '/fieldstones/'
   weight = 32
 
   [[menu.main]]
   identifier = 'Tags'
   title = 'タグ'
-  url = '/tags'
+  url = '/tags/'
   weight = 33
