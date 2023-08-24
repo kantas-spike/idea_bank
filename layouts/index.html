@@ -1,0 +1,31 @@
+{{ define "main" }}
+<div>
+    {{ .Content }}
+</div>
+<div>
+    <h2>アイデア</h2>
+    {{ range (where .Site.RegularPages.ByLastmod.Reverse ".Params.categories" "intersect" (slice "アイデア")) }}
+    <div>
+        <div>
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        </div>
+        <div>
+            {{ .Summary }}
+        </div>
+    </div>
+    {{ end }}
+</div>
+<div>
+    <h2>自然石</h2>
+    {{ range where .Site.RegularPages.ByLastmod.Reverse  ".Params.categories" "intersect" (slice "自然石")  }}
+    <div>
+        <div>
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        </div>
+        <div>
+            {{ .Summary }}
+        </div>
+    </div>
+    {{ end }}
+</div>
+{{ end }}

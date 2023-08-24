@@ -1,0 +1,14 @@
+{{ define "main" }}
+<div>
+    {{ range .Site.RegularPages.ByLastmod.Reverse }}
+    <div>
+        <div>
+            <h3><a href="{{ .Permalink }}">{{ .Title }}</a></h3>
+        </div>
+        <div>
+            {{ .Summary }}
+        </div>
+    </div>
+    {{ end }}
+</div>
+{{ end }}
