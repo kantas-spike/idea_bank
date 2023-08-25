@@ -2,7 +2,7 @@
 title: "{{ replace .Name "-" " " | title }}"
 date: {{ .Date }}
 draft: false
-layout: list
+layout: idea-bundle
 categories:
 - アイデア
 tags:
