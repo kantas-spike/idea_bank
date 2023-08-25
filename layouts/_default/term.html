@@ -2,12 +2,9 @@
 <div class="mx-s p-s">
     <div class="mb-s hl-xs">{{ .Title }} <span class="text-sm">(<a class="normal_link" href="{{ with .Site.GetPage "/tags" }}{{ .Permalink }}{{ end }}">他のタグ..</a>)</span></div>
 
-<div class="grid grid-cols-4 gap-s">
+<div class="grid grid-cols-3 gap-s">
     {{ range .Pages }}
-    <div class="border border-outline rounded-lg p-s">
-        <div><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-        <div>{{ .Summary }}</div>
-      </div>
+    {{ partial "item_summary" . }}
     {{ end }}
 </div>
 </div>

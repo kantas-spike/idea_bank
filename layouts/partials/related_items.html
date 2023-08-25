@@ -1,0 +1,9 @@
+{{ $curPage := . }}
+{{ with $curPage.Params.relationships }}
+    <h4 class="flex items-center"><span class="material-symbols-outlined mt-0.5 block">network_node</span><span class="block">関連項目</span></h4>
+    <ul class="list-none">
+    {{ range $rel_idea := $curPage.Params.relationships }}
+    <li>{{ partial "item_link" ($.Site.GetPage $rel_idea) }}</li>
+    {{ end }}
+    </ul>
+{{ end }}

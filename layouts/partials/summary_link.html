@@ -1,0 +1,11 @@
+{{ $ancestor_sections := (where .Ancestors.Reverse ".Kind" "section") }}
+{{ if (gt (len $ancestor_sections) 1) }}
+<div class="inline-flex flex-wrap items-center">
+{{ range $idx, $val := (after 1 $ancestor_sections) }}
+{{ if ne $idx 0 }} <span class="block px-1"> / </span> {{ end }}{{ partial "item_link" $val }}
+{{ end }}
+<span class="block px-1"> / </span> <div>{{ partial "item_link" . }}</div>
+</div>
+{{ else }}
+{{ partial "item_link" . }}
+{{ end }}

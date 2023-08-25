@@ -1,0 +1,8 @@
+<div class="txt-label-l flex items-center pt-s">
+  {{ $ancestor_sections := (where .Ancestors.Reverse ".Kind" "section") }} {{ if
+  (gt (len $ancestor_sections) 0) }} {{ range $idx, $val := $ancestor_sections
+  }} {{ if ne $idx 0 }} <span class="ml-1">/</span> {{ end }} {{ partial
+  "item_link" $val }} {{ end }}
+  <span class="ml-1">/</span>
+  {{ partial "item_label" . }} {{ end }}
+</div>

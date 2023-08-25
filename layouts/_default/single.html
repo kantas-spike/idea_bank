@@ -1,26 +1,11 @@
 {{ define "main" }}
-<div class="pt-m pb-xl">
-  <div class="mx-s p-s rounded-md border border-outline-variant">
-    <div class="hl-s"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-    <div>{{ .Content }}</div>
+<div class="pb-xl">
+  <div class="mx-s mb-s pl-xs">
+    {{ partial "item_breadcrumb" . }}
   </div>
+  {{ partial "item_detail" . }}
   <div class="mx-s px-s">
-    <h4>関連項目</h4>
-    <ul>
-    {{ range (where .RegularPages.ByLastmod.Reverse ".Params.categories"
-    "intersect" (slice "アイデア")) }}
-        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-    {{ end }}
-    {{ range (where .RegularPages.ByLastmod.Reverse ".Params.categories"
-    "intersect" (slice "自然石")) }}
-        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-    {{ end }}
-    {{ range .Params.related_pages }}
-        {{ with $.Site.GetPage . }}
-        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-        {{ end }}
-    {{ end }}
-    </ul>
+    {{ partial "related_items" . }}
   </div>
 </div>
 {{ end }}

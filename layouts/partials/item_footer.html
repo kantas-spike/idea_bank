@@ -1,0 +1,8 @@
+<div class="flex justify-between txt-label-l text-on-surface-variant max-w-[40rem]">
+    <div>{{ .Date.Format "2006/01/02" }}</div>
+    <div>
+        {{ range .GetTerms "tags" }}
+        <div><a href="{{ .Permalink }}">#{{ .LinkTitle }}</a></div>
+        {{ end }}
+    </div>
+</div>

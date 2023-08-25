@@ -9,7 +9,9 @@
     {{- $currentPage := . -}}
     {{- $selected := false -}}
     {{- range $idx, $val := (sort .Site.Menus.main "Weight") -}}
-    {{if (or (eq $currentPage.RelPermalink .URL) (and (ne .Identifier "Home") (hasPrefix $currentPage.RelPermalink .URL)))}}
+    {{ if (in $currentPage.Params.categories $val.Title) }}
+      {{- $selected = true -}}
+    {{ else if (eq $currentPage.RelPermalink $val.URL)}}
       {{- $selected = true -}}
     {{ else }}
       {{- $selected = false -}}
