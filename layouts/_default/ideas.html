@@ -1,19 +1,7 @@
 {{ define "main" }}
 <div class="pt-m pb-xl">
-  <div class="mx-s p-s rounded-md border border-outline-variant">
-    {{ .Content }}
-  </div>
-  <div class="mt-m mx-s px-s">
-    <div class="grid grid-cols-4 gap-s">
-      {{ range (where .Site.Pages.ByLastmod.Reverse ".Params.categories"
-      "intersect" (slice "アイデア")) }}
-      <div class="border border-outline rounded-lg p-s">
-        <div class="mb-s"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-        <div>{{ .Summary }}</div>
-      </div>
-      {{ end }}
-    </div>
-  </div>
+  {{ partial "list_summary" . }}
+  <div class="mt-m mx-s px-s">{{ partial "idea_grid" .Site }}</div>
 </div>
 
 {{ end }}
