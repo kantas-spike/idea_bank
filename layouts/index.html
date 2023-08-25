@@ -1,31 +1,11 @@
 {{ define "main" }}
 <div class="pt-m pb-xl">
-  <div class="mx-s p-s rounded-md border border-outline-variant">
-    {{ .Content }}
+  {{ partial "list_summary" . }}
+  <div class="mx-s px-s">
+  {{ partial "idea_grid" .Site }}
   </div>
   <div class="mx-s px-s">
-    <h4>アイデア</h4>
-    <div class="grid grid-cols-4 gap-s">
-      {{ range (where .Site.Pages.ByLastmod.Reverse ".Params.categories"
-      "intersect" (slice "アイデア")) }}
-      <div class="border border-outline rounded-lg p-s">
-        <div class="mb-s"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-        <div>{{ .Summary }}</div>
-      </div>
-      {{ end }}
-    </div>
-  </div>
-  <div class="mx-s px-s">
-    <h4>自然石</h4>
-    <div class="grid grid-cols-4 gap-s">
-      {{ range where .Site.RegularPages.ByLastmod.Reverse ".Params.categories"
-      "intersect" (slice "自然石") }}
-      <div class="border border-outline rounded-lg p-s">
-        <div class="mb-s"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-        <div>{{ .Summary }}</div>
-      </div>
-      {{ end }}
-    </div>
+    {{ partial "fieldstone_grid" .Site }}
   </div>
 </div>
 {{ end }}
