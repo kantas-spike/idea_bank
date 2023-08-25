@@ -18,7 +18,13 @@
   url = '/fieldstones/'
   weight = 32
 
-  [[menu.main]]
+[[menu.main]]
+  identifier = 'TIL'
+  title = 'TIL'
+  url = '/til/'
+  weight = 33
+
+[[menu.main]]
   identifier = 'Tags'
   title = 'タグ'
   url = '/tags/'

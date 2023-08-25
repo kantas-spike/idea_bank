@@ -2,6 +2,8 @@
 <div class="inline-flex items-center text-on-surface-variant/80"><span class="material-symbols-outlined !text-xl mt-1 mr-0.5 block"> lightbulb </span><span class="block" href="{{ .Permalink }}">{{ .Title }}</span></div>
 {{ else if in .Params.categories "自然石" }}
 <div class="inline-flex items-center text-on-surface-variant/80"><span class="material-symbols-outlined !text-xl mt-1 mr-0.5 block"> diamond </span><span class="block" href="{{ .Permalink }}">{{ .Title }}</span></div>
+{{ else if in .Params.categories "TIL" }}
+<div class="inline-flex items-center text-on-surface-variant/80"><span class="material-symbols-outlined !text-xl mt-1 mr-0.5 block"> local_library </span><span class="block" href="{{ .Permalink }}">{{ .Title }}</span></div>
 {{ else }}
 <div class="inline-flex items-center text-on-surface-variant/80"><span class="block" href="{{ .Permalink }}">{{ .Title }}</span></div>
 {{ end }}
