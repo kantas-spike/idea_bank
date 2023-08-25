@@ -1,0 +1,9 @@
+{{ $curPage := . }}
+{{ with $curPage.Params.relationships }}
+    <h4>関連項目</h4>
+    <ul class="list-none">
+    {{ range $rel_idea := $curPage.Params.relationships }}
+    <li>{{ partial "item_link" ($.Site.GetPage $rel_idea) }}</li>
+    {{ end }}
+    </ul>
+{{ end }}

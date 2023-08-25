@@ -6,4 +6,5 @@ layout: list
 categories:
 - アイデア
 tags:
+relationships:
 ---

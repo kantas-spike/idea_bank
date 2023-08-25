@@ -5,4 +5,5 @@ draft: false
 categories:
 - アイデア
 tags:
+relationships:
 ---
