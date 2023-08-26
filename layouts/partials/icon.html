@@ -1,0 +1,10 @@
+{{- $icon_name := "" -}}
+{{- $class_name := "!text-xl" -}}
+{{- if reflect.IsMap . -}}
+    {{- $icon_name = .Name -}}
+    {{- $class_name = .ClassName -}}
+{{- else -}}
+    {{- $icon_name = . -}}
+{{- end -}}
+{{- with $icon_name -}}
+<span class="material-symbols-outlined inline-flex align-middle {{ $class_name -}}">{{- $icon_name -}}</span>{{- end -}}
