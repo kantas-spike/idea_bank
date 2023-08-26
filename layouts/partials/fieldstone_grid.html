@@ -1,4 +1,4 @@
-<h4 class="flex items-center"><span class="material-symbols-outlined mt-0.5 block"> diamond </span><span class="block">自然石</span></h4>
+<h4><span>{{ partial "icon" (dict "Name" "diamond" "ClassName" "!text-2xl") }} <span>自然石</span></span></h4>
 <div class="grid grid-cols-3 gap-s">
   {{ range where .RegularPages.ByLastmod.Reverse ".Params.categories"
   "intersect" (slice "自然石") }} {{ partial "item_summary" . }} {{ end }}

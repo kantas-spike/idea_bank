@@ -1,4 +1,4 @@
-<h4 class="flex items-center"><span class="material-symbols-outlined mt-0.5 block"> lightbulb </span><span class="block">アイデア</span></h4>
+<h4><span>{{- partial "icon" (dict "Name" "lightbulb" "ClassName" "!text-2xl") -}}<span>アイデア</span></span></h4>
 <div class="grid grid-cols-3 gap-s">
   {{ range (where .Pages.ByLastmod.Reverse ".Params.categories" "intersect"
   (slice "アイデア")) }} {{ partial "item_summary" . }} {{ end }}
