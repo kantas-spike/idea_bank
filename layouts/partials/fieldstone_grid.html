@@ -1,5 +1,7 @@
+{{- $collection := where .RegularPages.ByLastmod.Reverse ".Params.categories" "intersect" (slice "自然石") -}}
+{{ with $collection }}
 <h4><span>{{ partial "icon" (dict "Name" "diamond" "ClassName" "!text-2xl") }} <span>自然石</span></span></h4>
 <div class="grid grid-cols-3 gap-s">
-  {{ range where .RegularPages.ByLastmod.Reverse ".Params.categories"
-  "intersect" (slice "自然石") }} {{ partial "item_summary" . }} {{ end }}
+  {{ range $collection }} {{ partial "item_summary" . }} {{ end }}
 </div>
+{{ end }}
