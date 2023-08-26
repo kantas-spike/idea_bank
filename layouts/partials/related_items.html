@@ -1,7 +1,7 @@
 {{ $curPage := . }}
 {{ with $curPage.Params.relationships }}
     <h4><span>{{ partial "icon" (dict "Name" "network_node" "ClassName" "!text-2xl") }} <span>関連項目</span></span></h4>
-    <ul class="list-none">
+    <ul>
     {{ range $rel_idea := $curPage.Params.relationships }}
     <li>{{ partial "item_link" ($.Site.GetPage $rel_idea) }}</li>
     {{ end }}
