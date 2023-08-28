@@ -3,9 +3,11 @@
     <div class="mb-s hl-xs">{{ .Title }} <span class="text-sm">(<a class="normal_link" href="{{ with .Site.GetPage "/tags" }}{{ .Permalink }}{{ end }}">他のタグ..</a>)</span></div>
 
 <div class="grid grid-cols-3 gap-s">
-    {{ range .Pages }}
-    {{ partial "item_summary" . }}
-    {{ end }}
+    {{ range (.Paginate .Pages.ByLastmod.Reverse site.Params.pagination.term).Pages }} {{ partial "item_summary" . }} {{ end
+    }}
 </div>
+<div class="flex justify-center mt-s">
+    {{ template "_internal/pagination.html" . }}
+  </div>
 </div>
 {{ end }}
