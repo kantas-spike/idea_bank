@@ -1,0 +1,17 @@
+{{- $title := "アイデア" -}}
+{{- $icon_name := "lightbulb" -}}
+{{- $class := slice "!text-2xl" "mb-0.5" -}}
+{{- if eq . "自然石" -}}
+  {{- $icon_name = "diamond" -}}
+  {{- $title = "自然石" -}}
+  {{- $class = $class | append "mr-0.5" -}}
+{{- else if eq . "TIL" -}}
+  {{- $icon_name = "local_library" -}}
+  {{- $title = "Today I Learned" -}}
+  {{- $class = $class | append "mr-1" -}}
+{{- else if eq . "最新" -}}
+  {{- $icon_name = "new_releases" -}}
+  {{- $title = "最近登録されたもの" -}}
+  {{- $class = $class | append "mr-1" -}}
+{{- end -}}
+<h4><span>{{- partial "icon" (dict "Name" $icon_name "ClassName" (delimit $class " ")) -}}<span>{{ $title }}</span></span></h4>
