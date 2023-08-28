@@ -1,6 +1,9 @@
 {{ define "main" }}
 <div class="pt-m pb-xl">
-  {{ partial "list_summary" . }}
+  {{ partial "list_description" . }}
+  <div class="mx-s px-s">
+    {{ partial "item_grid" (dict "Context" .Site "Type" "最新" "Limit" site.Params.home.maxItems) }}
+  </div>
   <div class="mx-s px-s">
   {{ partial "item_grid" (dict "Context" .Site "Type" "アイデア" "Limit" site.Params.home.maxIdeas) }}
   </div>

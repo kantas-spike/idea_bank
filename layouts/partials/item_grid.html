@@ -3,29 +3,24 @@
 {{- $context := .Context -}}
 {{- $limit := -1 -}}
 {{- $type := .Type -}}
-{{- $icon_name := "lightbulb" -}}
-{{- $title := "アイデア" -}}
+{{- $cond := (slice $type) -}}
 
 {{- if isSet $params "Limit" -}}
   {{- $limit = $params.Limit -}}
 {{- end -}}
 
-{{- if eq $type "自然石" -}}
-  {{- $icon_name = "diamond" -}}
-  {{- $title = "自然石" -}}
-{{- else if eq $type "TIL" -}}
-  {{- $icon_name = "local_library" -}}
-  {{- $title = "Today I Learned" -}}
+{{- if eq $type "最新" -}}
+  {{- $cond = (slice "アイデア" "自然石" "TIL") -}}
 {{- end -}}
 
 {{- if lt $limit 0 -}}
-{{- $collection = where $context.RegularPages.ByLastmod.Reverse ".Params.categories" "intersect" (slice $type) -}}
+{{- $collection = where $context.RegularPages.ByLastmod.Reverse ".Params.categories" "intersect" $cond -}}
 {{- else -}}
-  {{- $collection = first $limit (where $context.RegularPages.ByLastmod.Reverse ".Params.categories" "intersect" (slice $type)) -}}
+  {{- $collection = first $limit (where $context.RegularPages.ByLastmod.Reverse ".Params.categories" "intersect" $cond) -}}
 {{- end -}}
 
 {{- with $collection -}}
-{{ partial "item_title" $type }}
+{{ partial "item_type_label" $type }}
 <div class="grid grid-cols-3 gap-s">
   {{ range $collection }} {{ partial "item_summary" . }} {{ end }}
 </div>

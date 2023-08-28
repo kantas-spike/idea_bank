@@ -1,7 +1,9 @@
 <div class="border border-outline rounded-lg p-s">
-  <div class="mb-s">
+  <div>
     {{ partial "summary_link" . }}
-</div>
+  </div>
+  {{ partial "item_meta" . }}
+  <hr class="border-t border-outline-variant">
   <div class="mx-xs">{{ .Summary }}</div>
   <hr class="border-t border-outline-variant mt-s mb-xs">
   {{ partial "item_footer" . }}

@@ -31,9 +31,10 @@
   weight = 33
 
 [params.home]
-  maxIdeas = 6
-  maxStones = 6
-  maxTIL = 6
+  maxItems = 9
+  maxIdeas = 0
+  maxStones = 0
+  maxTIL = 0
 
 [params.pagination]
   items = 6

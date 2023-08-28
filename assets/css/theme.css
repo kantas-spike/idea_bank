@@ -70,6 +70,10 @@
   }
 
   @layer base {
+    pre.chroma {
+      @apply p-s rounded;
+    }
+
     h1 {
       @apply hl-l-mob mt-xl mb-m;
     }
