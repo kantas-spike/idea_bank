@@ -185,3 +185,39 @@
     }
 
   }
+
+  @layer components {
+    ul.pagination {
+      @apply flex border-secondary text-secondary bg-surface p-0;
+
+      li {
+        @apply border border mx-xs border-secondary text-on-secondary-container flex items-center justify-stretch  w-12 h-12 rounded-full;
+
+        a.page-link {
+          @apply text-secondary no-underline block w-full text-center mb-0.5;
+          span {
+            @apply block;
+          }
+        }
+
+        &:hover {
+          @apply bg-secondary-container;
+        }
+      }
+
+      li.active {
+        @apply bg-secondary;
+
+        a.page-link {
+          @apply text-on-secondary;
+        }
+      }
+
+      li.disabled {
+        @apply bg-surface border-disabled;
+        a.page-link {
+          @apply cursor-not-allowed text-disabled;
+        }
+      }
+    }
+  }
