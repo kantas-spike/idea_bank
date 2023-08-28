@@ -15,5 +15,12 @@
         {{- $css = $css | resources.Fingerprint }}
     {{- end }}
     <link rel="stylesheet" href="{{ $css.RelPermalink }}">
+    {{- $syntax_css := resources.Get "css/syntax_monokai.css" -}}
+    {{- if hugo.IsProduction }}
+        {{- $syntax_css = $syntax_css | resources.Minify | resources.Fingerprint }}
+    {{- else -}}
+        {{- $syntax_css = $syntax_css | resources.Fingerprint }}
+    {{- end }}
+    <link rel="stylesheet" href="{{ $syntax_css.RelPermalink }}">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
 </head>
