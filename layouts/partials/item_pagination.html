@@ -1,0 +1,10 @@
+{{- $context := .Context -}}
+{{- $type := .Type -}}
+{{ partial "item_title" $type }}
+<div class="grid grid-cols-3 gap-s">
+  {{ range ($context.Paginate (where $context.RegularPages.ByLastmod.Reverse ".Params.categories" "intersect" (slice $type)) site.Params.pagination.items).Pages }} {{ partial "item_summary" . }} {{ end
+  }}
+</div>
+<div class="flex justify-center mt-s">
+  {{ template "_internal/pagination.html" $context }}
+</div>
