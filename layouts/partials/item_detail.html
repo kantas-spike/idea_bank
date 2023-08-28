@@ -1,6 +1,8 @@
-<div class="mx-s p-s rounded-md border border-outline-variant">
+<div class="mx-s p-s rounded-md border border-outline-variant  max-w-[80rem]">
   <div class="hl-2xs"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-  <div class="mx-xs max-w-[40rem]">{{ .Content }}</div>
+  {{ partial "item_meta" . }}
+  <hr class="border-t border-outline-variant">
+  <div class="mx-xs max-w-[80rem]">{{ .Content }}</div>
   <hr class="!border-t border-outline-variant mt-s mb-xs">
   {{ partial "item_footer" . }}
 </div>
