@@ -2,13 +2,13 @@
 <div class="pt-m pb-xl">
   {{ partial "list_summary" . }}
   <div class="mx-s px-s">
-  {{ partial "idea_grid" .Site }}
+  {{ partial "idea_grid" (dict "Context" .Site "Limit" site.Params.home.maxIdeas) }}
   </div>
   <div class="mx-s px-s">
-    {{ partial "fieldstone_grid" .Site }}
+    {{ partial "fieldstone_grid" (dict "Context" .Site "Limit" site.Params.home.maxStones) }}
   </div>
   <div class="mx-s px-s">
-    {{ partial "til_grid" .Site }}
+    {{ partial "til_grid" (dict "Context" .Site "Limit" site.Params.home.maxTIL) }}
   </div>
 </div>
 {{ end }}
