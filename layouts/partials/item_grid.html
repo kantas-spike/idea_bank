@@ -25,7 +25,7 @@
 {{- end -}}
 
 {{- with $collection -}}
-<h4><span>{{- partial "icon" (dict "Name" $icon_name "ClassName" "!text-2xl") -}}<span>{{ $title }}</span></span></h4>
+{{ partial "item_title" $type }}
 <div class="grid grid-cols-3 gap-s">
   {{ range $collection }} {{ partial "item_summary" . }} {{ end }}
 </div>
