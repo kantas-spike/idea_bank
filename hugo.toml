@@ -34,3 +34,7 @@
   maxIdeas = 6
   maxStones = 6
   maxTIL = 6
+
+[params.pagination]
+  items = 6
+  term = 4
