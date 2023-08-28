@@ -1,5 +1,0 @@
-{{- if reflect.IsMap . -}}
-  {{ partial "item_grid" (dict "Context" .Context "Limit" .Limit "Type" "TIL") }}
-{{- else -}}
-  {{ partial "item_grid" (dict "Context" . "Type" "TIL") }}
-{{- end -}}

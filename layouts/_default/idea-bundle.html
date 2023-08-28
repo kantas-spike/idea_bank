@@ -1,13 +1,16 @@
 {{ define "main" }}
 <div class="pb-xl">
-  <div class="mx-s mb-s pl-xs">
-    {{ partial "item_breadcrumb" . }}
-  </div>
+  <div class="mx-s mb-s pl-xs">{{ partial "item_breadcrumb" . }}</div>
   {{ partial "item_detail" . }}
   <div class="mt-m mx-s px-s">{{ partial "related_items" . }}</div>
-  <div class="mt-m mx-s px-s">{{ partial "idea_grid" . }}</div>
-  <div class="mt-m mx-s px-s">{{ partial "fieldstone_grid" . }}</div>
-  <div class="mt-m mx-s px-s">{{ partial "til_grid" . }}</div>
+  <div class="mx-s px-s">
+    {{ partial "item_grid" (dict "Context" . "Type" "アイデア") }}
+  </div>
+  <div class="mx-s px-s">
+    {{ partial "item_grid" (dict "Context" . "Type" "自然石") }}
+  </div>
+  <div class="mx-s px-s">
+    {{ partial "item_grid" (dict "Context" . "Type" "TIL") }}
+  </div>
 </div>
-
 {{ end }}
