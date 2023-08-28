@@ -1,7 +1,9 @@
 {{ define "main" }}
 <div class="pt-m pb-xl">
   {{ partial "list_summary" . }}
-  <div class="mt-m mx-s px-s">{{ partial "til_grid" .Site }}</div>
+  <div class="mx-s px-s">
+    {{ partial "item_pagination" (dict "Context" . "Type" "TIL") }}
+  </div>
 </div>
 
 {{ end }}

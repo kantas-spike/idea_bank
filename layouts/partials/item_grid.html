@@ -1,0 +1,32 @@
+{{- $collection := slice -}}
+{{- $params := . -}}
+{{- $context := .Context -}}
+{{- $limit := -1 -}}
+{{- $type := .Type -}}
+{{- $icon_name := "lightbulb" -}}
+{{- $title := "アイデア" -}}
+
+{{- if isSet $params "Limit" -}}
+  {{- $limit = $params.Limit -}}
+{{- end -}}
+
+{{- if eq $type "自然石" -}}
+  {{- $icon_name = "diamond" -}}
+  {{- $title = "自然石" -}}
+{{- else if eq $type "TIL" -}}
+  {{- $icon_name = "local_library" -}}
+  {{- $title = "Today I Learned" -}}
+{{- end -}}
+
+{{- if lt $limit 0 -}}
+{{- $collection = where $context.RegularPages.ByLastmod.Reverse ".Params.categories" "intersect" (slice $type) -}}
+{{- else -}}
+  {{- $collection = first $limit (where $context.RegularPages.ByLastmod.Reverse ".Params.categories" "intersect" (slice $type)) -}}
+{{- end -}}
+
+{{- with $collection -}}
+{{ partial "item_title" $type }}
+<div class="grid grid-cols-3 gap-s">
+  {{ range $collection }} {{ partial "item_summary" . }} {{ end }}
+</div>
+{{- end -}}

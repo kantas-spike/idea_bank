@@ -1,7 +1,0 @@
-{{- $collection := where .RegularPages.ByLastmod.Reverse ".Params.categories" "intersect" (slice "アイデア") -}}
-{{ with $collection }}
-<h4><span>{{- partial "icon" (dict "Name" "lightbulb" "ClassName" "!text-2xl") -}}<span>アイデア</span></span></h4>
-<div class="grid grid-cols-3 gap-s">
-  {{ range $collection }} {{ partial "item_summary" . }} {{ end }}
-</div>
-{{ end }}

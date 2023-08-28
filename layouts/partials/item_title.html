@@ -1,0 +1,10 @@
+{{- $title := "アイデア" -}}
+{{- $icon_name := "lightbulb" -}}
+{{- if eq . "自然石" -}}
+  {{- $icon_name = "diamond" -}}
+  {{- $title = "自然石" -}}
+{{- else if eq . "TIL" -}}
+  {{- $icon_name = "local_library" -}}
+  {{- $title = "Today I Learned" -}}
+{{- end -}}
+<h4><span>{{- partial "icon" (dict "Name" $icon_name "ClassName" "!text-2xl") -}}<span>{{ $title }}</span></span></h4>
