@@ -15,4 +15,4 @@
 {{ $class_name = "mb-0.5 " }}
 {{ end }}
 
-<a class="block w-full" href="{{ .URL }}">{{ partial "icon" (dict "Name" $icon_name "ClassName" $class_name) }}{{ .Title }}</a>
+<a class="block w-full text-xl" href="{{ .URL }}">{{ partial "icon" (dict "Name" $icon_name "ClassName" $class_name) }}{{ .Title }}</a>
