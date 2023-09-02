@@ -24,19 +24,63 @@
 hugo new site mybank
 ~~~
 
-`mybank`に移動し、`git submodule`を使って`idea_bank`テーマを追加します。
+Hugoのモジュールとして、本テーマをインストールしたいので、
+以下のコマンドにより、サイト自体もHugoのモジュール化します。
 
 ~~~shell
 cd mybank
-git submodule add https://github.com/kantas-spike/idea_bank.git themes/idea_bank
+hugo mod init mybank
 ~~~
 
-`hugo.toml`の設定を変更し、`idea_bank`テーマを有効にします。
+次に、本テーマをモジュールとして取得します。
+
+~~~shell
+hugo module get github.com/kantas-spike/idea_bank
+~~~
+
+`hugo.toml`の設定を変更し、`idea_bank`テーマをモジュールとしてインポートします。
+
+さらに、テーマに必要な以下の設定を`hugo.toml`に追加します。
 
 ~~~toml
 # ..略..
-theme = 'idea_bank'
+[module]
+  # テーマのインポート
+  [[module.imports]]
+    path = 'github.com/kantas-spike/idea_bank'
+  # テーマで使用するアセットの登録
+  [[module.mounts]]
+    source = "assets"
+    target = "assets"
+  [[module.mounts]]
+    source = "hugo_stats.json"
+    target = "assets/watching/hugo_stats.json"
 # ..略..
+#  テーマで利用するtailwindcss用の設定
+[build]
+  writeStats = true
+
+[[build.cachebusters]]
+  source = 'assets/watching/hugo_stats\.json'
+  target = 'theme\.css'
+[[build.cachebusters]]
+  source = '(postcss|tailwind)\.config\.js'
+  target = 'css'
+# ..略..
+~~~
+
+最後に、テーマに必要なパッケージをインストールします。
+
+以下を実行して、テーマで利用しているパッケージをサイト側で収集します。
+
+~~~shell
+hugo mod npm pack
+~~~
+
+そして、サイト側でパッケージをインストールします。
+
+~~~shell
+npm install
 ~~~
 
 あとは、動作確認です。以下を実行してサーバーを起動します。
