@@ -35,7 +35,7 @@ hugo mod init mybank
 次に、本テーマをモジュールとして取得します。
 
 ~~~shell
-hugo module get github.com/kantas-spike/idea_bank
+hugo mod get github.com/kantas-spike/idea_bank
 ~~~
 
 `hugo.toml`の設定を変更し、`idea_bank`テーマをモジュールとしてインポートします。
@@ -45,9 +45,6 @@ hugo module get github.com/kantas-spike/idea_bank
 ~~~toml
 # ..略..
 [module]
-  # テーマのインポート
-  [[module.imports]]
-    path = 'github.com/kantas-spike/idea_bank'
   # テーマで使用するアセットの登録
   [[module.mounts]]
     source = "assets"
@@ -55,6 +52,9 @@ hugo module get github.com/kantas-spike/idea_bank
   [[module.mounts]]
     source = "hugo_stats.json"
     target = "assets/watching/hugo_stats.json"
+  # テーマのインポート
+  [[module.imports]]
+    path = 'github.com/kantas-spike/idea_bank'
 # ..略..
 #  テーマで利用するtailwindcss用の設定
 [build]
@@ -67,6 +67,13 @@ hugo module get github.com/kantas-spike/idea_bank
   source = '(postcss|tailwind)\.config\.js'
   target = 'css'
 # ..略..
+# シンタックスハイライトの設定
+[markup.highlight]
+  noClasses = false
+
+# `hugo new content xxx --editor code`でvscodeを開けるように
+[security.exec]
+  allow = ['^dart-sass-embedded$', '^go$', '^npx$', '^postcss$', 'code']
 ~~~
 
 最後に、テーマに必要なパッケージをインストールします。
