@@ -14,9 +14,9 @@
 {{- end -}}
 
 {{- if lt $limit 0 -}}
-{{- $collection = where $context.RegularPages.ByLastmod.Reverse ".Params.categories" "intersect" $cond -}}
+{{- $collection = where $context.Pages.ByLastmod.Reverse ".Params.categories" "intersect" $cond -}}
 {{- else -}}
-  {{- $collection = first $limit (where $context.RegularPages.ByLastmod.Reverse ".Params.categories" "intersect" $cond) -}}
+  {{- $collection = first $limit (where $context.Pages.ByLastmod.Reverse ".Params.categories" "intersect" $cond) -}}
 {{- end -}}
 
 {{- with $collection -}}
