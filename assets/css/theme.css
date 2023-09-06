@@ -175,6 +175,18 @@
         }
     }
 
+    table {
+        @apply mx-2 border-collapse border-spacing-2 border border-secondary;
+
+        th {
+            @apply bg-secondary-container text-on-secondary-container;
+        }
+
+        th, td {
+            @apply border border-secondary px-3 py-1.5;
+        }
+    }
+
     /* lg: */
     @media (min-width: 768px) {
       h1 {
