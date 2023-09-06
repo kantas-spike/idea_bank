@@ -104,7 +104,17 @@
       li {
           @apply my-2;
       }
-  }
+    }
+
+    .footnotes {
+      ol {
+        @apply list-outside list-decimal pl-6 max-w-[40rem];
+
+        li {
+          @apply my-2;
+        }
+      }
+    }
 
     ul.comment {
       @apply list-outside list-none;
