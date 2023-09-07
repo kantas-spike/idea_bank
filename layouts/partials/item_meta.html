@@ -2,5 +2,8 @@
     {{- $diff := now.Sub .Lastmod -}}
     <div>{{ if ne .Date .Lastmod }}{{ .Lastmod.Format "2006/01/02" }}{{ if lt $diff.Hours .Site.Params.items.maxHoursToShowUpdated }}<span class="text-red-600 ml-1">Updated</span>{{ end }}
     {{ else }}{{ .Date.Format "2006/01/02" }}{{ if lt $diff.Hours .Site.Params.items.maxHoursToShowNew }}<span class="text-red-600 ml-1">New</span>{{ end }}{{ end }}</div>
+    <div>
+        {{ if (eq .Kind "section") }}<div class="font-bold text-primary">アイテム数: {{ .Pages | len }} 個</div>{{ end }}
         <div>文字数: {{ countrunes .Content }} 文字</div>
+    </div>
  </div>
