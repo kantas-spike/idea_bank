@@ -39,3 +39,7 @@
 [params.pagination]
   items = 6
   term = 4
+
+[params.items]
+  maxHoursToShowNew = 72
+  maxHoursToShowUpdated = 240
