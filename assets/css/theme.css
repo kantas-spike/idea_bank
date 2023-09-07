@@ -71,7 +71,7 @@
 
   @layer base {
     pre.chroma {
-      @apply p-s rounded;
+      @apply p-s rounded overflow-x-auto;
     }
 
     h1 {
@@ -98,10 +98,8 @@
       @apply txt-body-l max-w-[40rem] my-s;
     }
 
-    p, li {
-      code {
-        @apply bg-gray-300 px-1 mx-0.5 py-0.5;
-      }
+    :not(pre.chroma) > code {
+      @apply bg-gray-300 px-1 mx-0.5 py-0.5;
     }
 
     ul {
@@ -120,12 +118,23 @@
       }
     }
 
+    .footnotes {
+      @apply mt-l;
+
+      ol {
+          @apply txt-body-m;
+
+          p {
+            @apply txt-body-m;
+          }
+      }
+    }
 
     ul.comment {
       @apply list-outside list-none;
 
-      li {
-          @apply txt-comment-l -indent-3;
+      ol {
+          @apply txt-body-l;
       }
     }
 
