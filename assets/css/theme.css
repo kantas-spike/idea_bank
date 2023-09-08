@@ -118,7 +118,11 @@
       @apply list-outside list-decimal pl-6;
 
       li {
-        @apply my-2;
+        @apply my-2 max-w-[40rem];
+      }
+
+      li:has(div.highlight) {
+        @apply max-w-[120rem];
       }
     }
 
