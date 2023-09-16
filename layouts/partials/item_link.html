@@ -1,10 +1,11 @@
-{{ $icon_name := "" }}
-{{ if in .Params.categories "アイデア"}}
-{{ $icon_name = "lightbulb" }}
-{{ else if in .Params.categories "自然石" }}
-{{ $icon_name = "diamond" }}
-{{ else if in .Params.categories "TIL" }}
-{{ $icon_name = "local_library" }}
-{{ end }}
-
-<span>{{ partial "icon" $icon_name }}<a  class="ml-0.5" href="{{ .Permalink }}">{{ .Title }}</a></span>
+{{- $icon_title := "" -}}
+{{- $class_name := "" -}}
+{{- if in .Params.categories "アイデア" -}}
+{{- $icon_title = "アイデア" -}}
+{{- else if in .Params.categories "自然石" -}}
+{{- $class_name = "mr-2xs" -}}
+{{- $icon_title = "自然石" -}}
+{{- else if in .Params.categories "TIL" -}}
+{{- $icon_title = "TIL" -}}
+{{- end -}}
+<span class="text-link-visited font-bold">{{ partial "icon" (dict "Name" $icon_title "ClassName" $class_name) }}<a href="{{ .Permalink }}">{{ .Title }}</a></span>
