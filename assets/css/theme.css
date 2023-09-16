@@ -67,6 +67,10 @@
     .txt-button {
       @apply text-base font-bold leading-m tracking-m;
     }
+
+    .emoji {
+      font-family: 'Noto Emoji', sans-serif;
+    }
   }
 
   @layer base {
