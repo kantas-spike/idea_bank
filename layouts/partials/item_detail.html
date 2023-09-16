@@ -1,8 +1,6 @@
-<div class="mx-s p-s rounded-md border border-outline-variant  max-w-[80rem]">
-  <div class="hl-2xs"><a href="{{ .Permalink }}">{{ .Title }}</a></div>
-  {{ partial "item_meta" . }}
-  <hr class="border-t border-outline-variant">
-  <div class="mx-xs max-w-[80rem]">{{ .Content }}</div>
-  <hr class="!border-t border-outline-variant mt-s mb-xs">
-  {{ partial "item_footer" . }}
+<div class="mx-auto p-s pb-l rounded-md border border-outline-variant max-w-[50rem]">
+  <div class="mx-m hl-2xs">{{ partial "item_link" . }}</div>
+  <div class="mx-l">{{ partial "item_meta" . }}</div>
+  <hr class="border-t border-outline-variant mt-s mb-xs">
+  <div class="mx-l mt-l max-w-[80rem]">{{ .Content }}</div>
 </div>
