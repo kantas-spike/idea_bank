@@ -16,7 +16,7 @@
     {{ else }}
       {{- $selected = false -}}
     {{end}}
-    <div class="text-center pt-5 pb-3 navi {{ if (ne $idx 0) }}border-l border-outline-variant{{end}} {{ if $selected }}font-bold bg-secondary-container text-on-secondary-container{{end}}">
+    <div class="pt-5 pb-3 navi {{ if (ne $idx 0) }}border-l border-outline-variant{{end}} {{ if $selected }}font-bold bg-secondary-container text-on-secondary-container{{end}}">
       {{ partial "item_menu_link" $val }}
     </div>
     {{- end -}}
