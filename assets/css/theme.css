@@ -73,6 +73,9 @@
     pre.chroma {
       @apply p-s rounded overflow-x-auto;
     }
+    pre.mermaid {
+      @apply flex justify-center;
+    }
 
     h1 {
       @apply hl-l-mob mt-xl mb-m;
