@@ -7,19 +7,19 @@
 @layer utilities {
     /* 見出し(デスクトップ版) */
     .hl-l {
-      @apply text-4xl font-normal leading-s tracking-m;
+      @apply text-4xl font-medium leading-s tracking-m;
     }
     .hl-m {
-      @apply text-3xl font-normal leading-m tracking-m;
+      @apply text-3xl font-medium leading-m tracking-m;
     }
     .hl-s {
-      @apply text-2xl font-normal leading-m tracking-m;
+      @apply text-2xl font-medium leading-m tracking-m;
     }
     .hl-xs {
-      @apply text-xl font-normal leading-m tracking-m;
+      @apply text-xl font-medium leading-m tracking-m;
     }
     .hl-2xs {
-      @apply text-lg font-normal leading-m tracking-m;
+      @apply text-lg font-medium leading-m tracking-m;
     }
 
     /* 見出し(モバイル版) */

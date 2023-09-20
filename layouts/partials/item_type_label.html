@@ -1,4 +1,7 @@
 {{- $title := . -}}
-{{- $icon_title := $title -}}
+{{- $icon_title := . -}}
+{{- if (eq . "最新") -}}
+{{- $title = "最近の更新されたもの" -}}
+{{- end -}}
 {{- $class := slice "text-2xl" -}}
 <h4><span>{{- partial "icon" (dict "Name" $icon_title "ClassName" (delimit $class " ")) -}}<span>{{ $title }}</span></span></h4>
