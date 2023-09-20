@@ -7,19 +7,19 @@
 @layer utilities {
     /* 見出し(デスクトップ版) */
     .hl-l {
-      @apply text-4xl font-normal leading-s tracking-m;
+      @apply text-4xl font-bold leading-s tracking-m;
     }
     .hl-m {
-      @apply text-3xl font-normal leading-m tracking-m;
+      @apply text-3xl font-bold leading-m tracking-m;
     }
     .hl-s {
-      @apply text-2xl font-normal leading-m tracking-m;
+      @apply text-2xl font-bold leading-m tracking-m;
     }
     .hl-xs {
-      @apply text-xl font-normal leading-m tracking-m;
+      @apply text-xl font-bold leading-m tracking-m;
     }
     .hl-2xs {
-      @apply text-lg font-normal leading-m tracking-m;
+      @apply text-lg font-bold leading-m tracking-m;
     }
 
     /* 見出し(モバイル版) */
@@ -219,15 +219,15 @@
     /* lg: */
     @media (min-width: 768px) {
       h1 {
-        @apply hl-l mt-xl mb-m;
+        @apply hl-l mt-xl mb-m font-bold;
       }
 
       h2 {
-        @apply hl-m mt-xl mb-m;
+        @apply hl-m mt-xl mb-m font-bold;
       }
 
       h3 {
-        @apply hl-s mt-l mb-m;
+        @apply hl-s mt-l mb-m font-bold;
       }
 
       h4 {
@@ -235,7 +235,7 @@
       }
 
       h5 {
-        @apply hl-2xs mt-m mb-s;
+        @apply hl-2xs mt-m mb-s font-bold;
       }
     }
 
