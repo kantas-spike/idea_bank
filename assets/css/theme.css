@@ -145,6 +145,12 @@
       }
     }
 
+    .column {
+      p {
+        @apply txt-body-m max-w-[60rem] my-xs;
+      }
+    }
+
     ul.comment {
       @apply list-outside list-none;
 
