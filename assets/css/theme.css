@@ -7,36 +7,36 @@
 @layer utilities {
     /* 見出し(デスクトップ版) */
     .hl-l {
-      @apply text-4xl font-medium leading-s tracking-m;
+      @apply text-4xl font-bold leading-s tracking-m;
     }
     .hl-m {
-      @apply text-3xl font-medium leading-m tracking-m;
+      @apply text-3xl font-bold leading-m tracking-m;
     }
     .hl-s {
-      @apply text-2xl font-medium leading-m tracking-m;
+      @apply text-2xl font-bold leading-m tracking-m;
     }
     .hl-xs {
-      @apply text-xl font-medium leading-m tracking-m;
+      @apply text-xl font-bold leading-m tracking-m;
     }
     .hl-2xs {
-      @apply text-lg font-medium leading-m tracking-m;
+      @apply text-lg font-bold leading-m tracking-m;
     }
 
     /* 見出し(モバイル版) */
     .hl-l-mob {
-      @apply text-3xl font-medium leading-m tracking-m;
+      @apply text-3xl font-bold leading-m tracking-m;
     }
     .hl-m-mob {
-      @apply text-2xl font-medium leading-m tracking-m;
+      @apply text-2xl font-bold leading-m tracking-m;
     }
     .hl-s-mob {
-      @apply text-xl font-medium leading-m tracking-m;
+      @apply text-xl font-bold leading-m tracking-m;
     }
     .hl-xs-mob {
-      @apply text-lg font-medium leading-m tracking-m;
+      @apply text-lg font-bold leading-m tracking-m;
     }
     .hl-2xs-mob {
-      @apply text-base font-medium leading-l tracking-m;
+      @apply text-base font-bold leading-l tracking-m;
     }
 
     /* その他テキスト */
@@ -102,7 +102,7 @@
     }
 
     p {
-      @apply txt-body-l max-w-[40rem] my-s;
+      @apply txt-body-l max-w-[60rem] my-s;
     }
 
     :not(pre.chroma) > code {
@@ -113,7 +113,7 @@
       @apply list-outside list-disc pl-6;
 
       li {
-        @apply my-2 max-w-[40rem];
+        @apply my-2 max-w-[60rem];
       }
 
       li:has(div.highlight) {
@@ -142,6 +142,12 @@
           p {
             @apply txt-body-m;
           }
+      }
+    }
+
+    .column {
+      p {
+        @apply txt-body-m max-w-[60rem] my-xs;
       }
     }
 
