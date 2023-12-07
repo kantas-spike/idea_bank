@@ -1,9 +1,0 @@
-<div
-  class="column not-article my-l mx-1 p-8 border-2 border-surface-container-highest !text-sm rounded-md bg-surface-container-low text-on-surface-container-low"
->
-  {{- with .Get "title" -}}
-  <div class="hl-xs mb-4">
-    <span class="inline-flex emoji">📄</span><span>{{ . }}</span>
-  </div>
-  {{- end }} {{ .Inner | markdownify }}
-</div>

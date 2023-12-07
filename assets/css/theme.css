@@ -145,20 +145,6 @@
       }
     }
 
-    .column {
-      p {
-        @apply txt-body-m max-w-[60rem] my-xs;
-      }
-    }
-
-    ul.comment {
-      @apply list-outside list-none;
-
-      ol {
-          @apply txt-body-l;
-      }
-    }
-
     a.site_title:link, a.site_title:visited, a.site_title:hover {
         color: unset;
         @apply no-underline;
