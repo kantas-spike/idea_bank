@@ -1,14 +1,21 @@
 {{ $curPage := . }}
 {{ with $curPage.Params.relationships }}
-    <h4><span>{{ partial "icon" (dict "Name" "関連項目" "ClassName" "text-2xl") }} <span>関連項目</span></span></h4>
+  <div class="mx-auto max-w-[60rem]">
+    <h4>
+      <span
+        >{{ partial "icon" (dict "Name" "関連項目" "ClassName" "text-2xl") }}
+        <span>関連項目</span></span
+      >
+    </h4>
     <ul>
-    {{ range $rel_idea := $curPage.Params.relationships }}
-    {{ with ($.Site.GetPage $rel_idea) }}
-    <li>{{ partial "item_link" . }}</li>
-    {{ else }}
-    {{ errorf "%q: " $curPage.Path }}
-    {{ errorf "    Failed to handle page %q" $rel_idea }}
-    {{ end }}
-    {{ end }}
+      {{ range $rel_idea := $curPage.Params.relationships }}
+        {{ with ($.Site.GetPage $rel_idea) }}
+          <li>{{ partial "item_link" . }}</li>
+        {{ else }}
+          {{ errorf "%q: " $curPage.Path }}
+          {{ errorf "    Failed to handle page %q" $rel_idea }}
+        {{ end }}
+      {{ end }}
     </ul>
+  </div>
 {{ end }}
