@@ -6,5 +6,6 @@ layout: idea-bundle
 categories:
 - アイデア
 tags:
+- undefined
 relationships:
 ---
